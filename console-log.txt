@@ -1,0 +1,34 @@
+yuriy@local multi-repo-merge-test-old-source % git remote add new-repo git@github.com:yuriybabenko/multi-repo-merge-test.git
+yuriy@local multi-repo-merge-test-old-source % git status
+On branch other-changes
+Your branch is up to date with 'origin/other-changes'.
+
+nothing to commit, working tree clean
+yuriy@local multi-repo-merge-test-old-source % git push new-repo other-changes:other-changes
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 543 bytes | 543.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+remote:
+remote: Create a pull request for 'other-changes' on GitHub by visiting:
+remote:      https://github.com/yuriybabenko/multi-repo-merge-test/pull/new/other-changes
+remote:
+To github.com:yuriybabenko/multi-repo-merge-test.git
+ * [new branch]      other-changes -> other-changes
+yuriy@local multi-repo-merge-test-old-source % cd ../multi-repo-merge-test/
+yuriy@local multi-repo-merge-test % git pull
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 1), reused 6 (delta 1), pack-reused 0
+Unpacking objects: 100% (6/6), 523 bytes | 65.00 KiB/s, done.
+From github.com:yuriybabenko/multi-repo-merge-test
+ * [new branch]      other-changes -> origin/other-changes
+Already up to date.
+yuriy@local multi-repo-merge-test % git merge --allow-unrelated-histories origin/other-changes
+Auto-merging readme.txt
+CONFLICT (add/add): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.
